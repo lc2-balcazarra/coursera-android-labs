@@ -8,17 +8,18 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class ExplicitlyLoadedActivity extends Activity {
 
 	static private final String TAG = "Lab-Intents";
 
 	private EditText mEditText;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		setContentView(R.layout.explicitly_loaded_activity);
 
 		// Get a reference to the EditText field
@@ -34,25 +35,29 @@ public class ExplicitlyLoadedActivity extends Activity {
 			public void onClick(View v) {
 
 				enterClicked();
-			
+
 			}
 		});
 
 	}
 
 	// Sets result to send back to calling Activity and finishes
-	
 	private void enterClicked() {
 
 		Log.i(TAG,"Entered enterClicked()");
-		
+
 		// TODO - Save user provided input from the EditText field
+		String savedText =  mEditText.toString();
 
 		// TODO - Create a new intent and save the input from the EditText field as an extra
-		
-		// TODO - Set Activity's result with result code RESULT_OK
-		
-		// TODO - Finish the Activity
+		Intent intent = null;
+		intent = new Intent(this, ActivityLoaderActivity.class);
+		intent.putExtra("savedText", savedText);
 
+		// TODO - Set Activity's result with result code RESULT_OK
+		setResult(Activity.RESULT_OK, intent);
+
+		// TODO - Finish the Activity
+		finish();
 	}
 }
