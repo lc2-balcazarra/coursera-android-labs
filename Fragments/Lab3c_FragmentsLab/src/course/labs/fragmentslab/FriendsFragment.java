@@ -5,14 +5,16 @@ import android.app.ListFragment;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.app.Fragment;
 
 public class FriendsFragment extends ListFragment {
 
-	private static final String[] FRIENDS = { "ladygaga", "msrebeccablack",
-			"taylorswift13" };
+	private static final String[] FRIENDS = { "ladygaga", "msrebeccablack",	"taylorswift13" };
 	private static final String TAG = "Lab-Fragments";
 
 	public interface SelectionListener {
@@ -60,7 +62,6 @@ public class FriendsFragment extends ListFragment {
 	// 	@Override
 	//  public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	//		Bundle savedInstanceState)
-
 	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {

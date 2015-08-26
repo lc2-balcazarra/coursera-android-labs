@@ -70,7 +70,8 @@ public class ActivityLoaderActivity extends Activity {
 		explicitIntent = new Intent(this, ExplicitlyLoadedActivity.class);
 
 		// TODO - Start an Activity using that intent and the request code defined above
-		startActivity(explicitIntent);
+        // startActivity starts another activity, startActivityForResult starts another activity and expects a result back.
+		startActivityForResult(explicitIntent, GET_TEXT_REQUEST_CODE);
 	}
 
 	// Start a Browser Activity to view a web page or its URL
@@ -94,7 +95,12 @@ public class ActivityLoaderActivity extends Activity {
 		Log.i(TAG,"Chooser Intent Action:" + chooserIntent.getAction());
 
 		// TODO - Start the chooser Activity, using the chooser intent
-		startActivity(chooserIntent);
+        // Verify the intent will resolve to at least one activity
+        if (baseIntent.resolveActivity(getPackageManager()) != null ) {
+                //intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(chooserIntent);
+        }
+        // startActivity(chooserIntent);
 	}
 
 	@Override

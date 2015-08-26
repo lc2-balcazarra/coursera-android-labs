@@ -17,7 +17,7 @@ public class FeedFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+							  Bundle savedInstanceState) {
 
 		return inflater.inflate(R.layout.feed, container, false);
 
@@ -41,7 +41,7 @@ public class FeedFragment extends Fragment {
 	void updateFeedDisplay(int position) {
 
 		Log.i(TAG, "Entered updateFeedDisplay()");
-				
+
 		mTextView = (TextView) getView().findViewById(R.id.feed_view);
 		mTextView.setText(feedFragmentData.getFeed(position));
 
